@@ -5,7 +5,7 @@ from pipeline.compilers import SubProcessCompiler
 
 DEFAULTS = {
     'PIPELINE_TYPESCRIPT_BINARY': ('/usr/bin/env', 'tsc'),
-    'PIPELINE_TYPESCRIPT_ARGUMENTS': ''
+    'PIPELINE_TYPESCRIPT_ARGUMENTS': (),
 }
 
 
@@ -25,8 +25,7 @@ class TypescriptCompiler(SubProcessCompiler):
         # Redirect output because Typescript compiler outputs errors to stdout
         # Redirect output because Typescript compiler outputs errors to stdout
         command = (
-            "/usr/bin/env",
-            "tsc",
+            get_setting('PIPELINE_TYPESCRIPT_BINARY'),
             get_setting('PIPELINE_TYPESCRIPT_ARGUMENTS'),
             "-out",
             outfile,
