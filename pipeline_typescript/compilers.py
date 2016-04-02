@@ -4,7 +4,7 @@ from django.conf import settings as _settings
 from pipeline.compilers import SubProcessCompiler
 
 DEFAULTS = {
-    'PIPELINE_TYPESCRIPT_BINARY': '/usr/bin/env tsc',
+    'PIPELINE_TYPESCRIPT_BINARY': ('/usr/bin/env', 'tsc'),
     'PIPELINE_TYPESCRIPT_ARGUMENTS': ''
 }
 
