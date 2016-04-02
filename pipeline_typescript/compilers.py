@@ -25,7 +25,8 @@ class TypescriptCompiler(SubProcessCompiler):
         # Redirect output because Typescript compiler outputs errors to stdout
         # Redirect output because Typescript compiler outputs errors to stdout
         command = (
-            get_setting('PIPELINE_TYPESCRIPT_BINARY'),
+            "/usr/bin/env",
+            "tsc",
             get_setting('PIPELINE_TYPESCRIPT_ARGUMENTS'),
             "-out",
             outfile,
